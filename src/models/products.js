@@ -32,4 +32,12 @@ const insert = async (product) => {
   return insertId;
 };
 
-module.exports = { findAll, findById, insert };
+const getAllProductsById = async () => {
+  const [result] = await connection.execute(
+    'SELECT id FROM products',
+  );
+
+  return result;
+};
+
+module.exports = { findAll, findById, insert, getAllProductsById };

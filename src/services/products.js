@@ -1,13 +1,13 @@
-const { modelProducts } = require('../models/index');
+const { productsModel } = require('../models/index');
 
 const findAll = async () => {
-  const products = await modelProducts.findAll();
+  const products = await productsModel.findAll();
 
   return { type: null, message: products };
 };
 
 const findById = async (productId) => {
-  const product = await modelProducts.findById(productId);
+  const product = await productsModel.findById(productId);
 
   if (product.length > 0) {
     return { type: null, message: product };
@@ -17,8 +17,8 @@ const findById = async (productId) => {
 };
 
 const insert = async (name) => {
-  const productId = await modelProducts.insert({ name });
-  const newProduct = await modelProducts.findById(productId);
+  const productId = await productsModel.insert({ name });
+  const newProduct = await productsModel.findById(productId);
 
   return { type: null, message: newProduct };
 };
