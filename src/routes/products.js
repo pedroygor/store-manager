@@ -1,5 +1,6 @@
 const express = require('express');
 const { productsController } = require('../controllers/index');
+const validateIdInProducts = require('../middlewares/validateIdInProducts');
 
 const validateNewProductsField = require('../middlewares/validateNewProductsField');
 
@@ -19,6 +20,13 @@ router.post(
   '/',
   validateNewProductsField,
   productsController.insertProduct,
+);
+
+router.put(
+  '/:id',
+  validateNewProductsField,
+  validateIdInProducts,
+  productsController.updateProduct,
 );
 
 module.exports = router;
