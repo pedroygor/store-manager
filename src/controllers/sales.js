@@ -6,4 +6,20 @@ const createSales = async (req, res) => {
   res.status(201).json(message);
 };
 
-module.exports = { createSales };
+const getAllSales = async (_req, res) => {
+  const { message } = await salesServices.findAll();
+
+  res.status(200).json(message);
+};
+
+const getSalesById = async (req, res) => {
+  const { id } = req.params;
+  const { type, message } = await salesServices.findById(Number(id));
+  if (type) {
+    return res.status(404).json({ message });
+  }
+
+  res.status(200).json(message);
+};
+
+module.exports = { createSales, getAllSales, getSalesById };
