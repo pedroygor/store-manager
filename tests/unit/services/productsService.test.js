@@ -4,7 +4,7 @@ const { expect } = chai;
 
 const productsModel = require('../../../src/models/products');
 const productsServices = require('../../../src/services/products');
-const mock = require('./mocks/products.mock');
+const mock = require('../../mocks/products.mock');
 
 describe('Testando a camada services para a rota "/products"', () => {
     afterEach(() => {
@@ -25,6 +25,6 @@ describe('Testando a camada services para a rota "/products"', () => {
     const { type, message } = await productsServices.findById(2);
 
     expect(type).to.be.equal(null);
-    expect(message).to.be.deep.equal([{"id": 2, "name": 'Traje de encolhimento'}]);
+    expect(message).to.be.deep.equal({"id": 2, "name": 'Traje de encolhimento'});
   })
 });

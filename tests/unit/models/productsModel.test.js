@@ -5,7 +5,7 @@ const { expect } = chai;
 const productsModel = require('../../../src/models/products');
 const connection = require('../../../src/models/db/connection');
 
-const productsMock = require('./mocks/products.mock');
+const productsMock = require('../../mocks/products.mock');
 
 describe('Testando a camada model para a rota "/products"', () => {
   afterEach(function () {

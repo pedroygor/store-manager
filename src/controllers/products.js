@@ -12,7 +12,7 @@ const getProductById = async (req, res) => {
 
   if (type) return res.status(404).json({ message });
 
-  res.status(200).json(...message);
+  res.status(200).json(message);
 };
 
 const insertProduct = async (req, res) => {

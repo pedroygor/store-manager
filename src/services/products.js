@@ -10,7 +10,7 @@ const findById = async (productId) => {
   const product = await productsModel.findById(productId);
 
   if (product.length > 0) {
-    return { type: null, message: product };
+    return { type: null, message: product[0] };
   }
 
   return { type: 404, message: 'Product not found' };
