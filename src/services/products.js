@@ -29,4 +29,10 @@ const update = async (id, name) => {
   return { type: null, message: { id, name } };
 };
 
-module.exports = { findAll, findById, insert, update };
+const deleteProductById = async (id) => {
+  await productsModel.deleteProductById(id);
+
+  return { type: null, message: '' };
+};
+
+module.exports = { findAll, findById, insert, update, deleteProductById };

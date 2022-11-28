@@ -29,4 +29,10 @@ router.put(
   productsController.updateProduct,
 );
 
+router.delete(
+  '/:id',
+  validateIdInProducts,
+  productsController.deleteProductById,
+);
+
 module.exports = router;
