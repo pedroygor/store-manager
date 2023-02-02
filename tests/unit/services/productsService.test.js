@@ -7,9 +7,9 @@ const productsServices = require('../../../src/services/products');
 const mock = require('../../mocks/products.mock');
 
 describe('Testando a camada services para a rota "/products"', () => {
-    afterEach(() => {
+  afterEach(() => {
     sinon.restore();
-    });
+  });
 
   it('Realizando a operação de buscar todos os produtos', async () => {
     sinon.stub(productsModel, 'findAll').resolves(mock.products);
